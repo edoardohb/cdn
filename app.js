@@ -4,10 +4,10 @@ const sharp = require('sharp');
 const fs = require('fs').promises;
 
 const app = express();
-const port = 3000;
+const port = 3003;
 
 app.get('/', (req, res) => {
-	res.json({ message: 'Welcome' });
+	res.redirect('https://skailar.ac');
 });
 
 app.get('/*', async (req, res) => {
@@ -34,7 +34,7 @@ app.get('/*', async (req, res) => {
 			res.sendFile(filePath);
 		}
 	} catch (error) {
-		res.status(404).send('File not found');
+		res.redirect('https://skailar.ac');
 	}
 });
 
